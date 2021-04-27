@@ -1,0 +1,59 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<h1>SELECT ACTOR</h1>
+<div class="section">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Birth Year</th>
+            <th>Select!</th>
+        </tr>
+        <tr *ngFor="let item of actorsDB">
+            <td>{{item.name}}</td>
+            <td>{{item.bYear}}</td>
+            <td><button type="submit" class="btn btn-primary" (click)="OnSelectUpdateActorSelection(item)">Select</button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="actorsObj!=null">
+    <span class="label label-info">Selected Actor: {{actorsObj.name}}</span>
+    <!--span class="label label-info">Selected Actor: {{moviesObj.title}}</span-->
+</div>
+
+
+<br><br><br><br><br>
+<!------------------------------------------------------------------------------------------------>
+
+
+
+<h1>SELECT MOVIE</h1>
+<div class="section">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Birth Year</th>
+            <th>Select!</th>
+        </tr>
+        <tr *ngFor="let item of moviesDB">
+            <td>{{item.title}}</td>
+            <td>{{item.year}}</td>
+            <td><button type="submit" class="btn btn-primary" (click)="OnSelectUpdateMovieSelection(item)">Select</button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="moviesObj!=null">
+    <span class="label label-info">Selected Movie: {{moviesObj.title}}</span>
+</div>
+
+<br><br><br><br><br>
+<!------------------------------------------------------------------------------------------------>
+
+<button type="submit" class="btn btn-primary" (click)="onAddActor2Movie()">Add Actor 2 Movie</button>
